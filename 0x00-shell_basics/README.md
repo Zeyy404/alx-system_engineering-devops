@@ -13,3 +13,8 @@
 12-file_type script would print the type of the file named "iamafile" that is located in the /tmp directory
 13-symbolic_link script creates a symbolic link named "__ls__" to /bin/ls in the current working directory
 14-copy_html script copy all the html files form the current working directory that are a newer version or don't exist in the destination directory which in our case is the parent directory of the current one
+100-lets_move script moves all files beginning with an uppercase letter to directory /tmp/u
+101-clean_emacs script deletes all files in the current working directory that end with the character ~
+102-tree script creates the directories welcome/, welcome/to and welcome/to/school in the current directory
+103-commas script lists all the files and directories, including hidden ones, separated by commas and classified by type
+school.mgc is a magic file that could be used to detect school data files
