@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -am --classify
+ls -am --file-type
