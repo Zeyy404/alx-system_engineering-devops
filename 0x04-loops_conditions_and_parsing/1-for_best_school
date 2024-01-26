@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # a script that displays 'Best School' 10 times
 for _ in {1..10}; do
-    echo "Best Schoool"
+    echo "Best School"
 done
