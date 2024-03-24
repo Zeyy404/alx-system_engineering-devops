@@ -6,4 +6,4 @@ BITS=4096
 
 PASSPHRASE="betty"
 
-ssh-keygen -t rsa -b $BITS -f ~/.ssh/$KEY_NAME -N $PASSPHRASE
+ssh-keygen -t rsa -b $BITS -f $KEY_NAME -N $PASSPHRASE
