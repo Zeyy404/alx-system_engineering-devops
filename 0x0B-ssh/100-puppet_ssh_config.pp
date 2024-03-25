@@ -7,10 +7,12 @@ file_line { 'SSH Private Key':
   ensure  => present,
   path	  => 'etc/ssh/ssh_config',
   line	  => '	  IdentityFile ~/.ssh/school',
+  replace => true,
 }
 
 file_line { 'Deny Password Auth':
   ensure  => present,
   path	  => 'etc/ssh/ssh_config',
   line	  => '	  PasswordAuthentication no',
+  replace => true,
 }
