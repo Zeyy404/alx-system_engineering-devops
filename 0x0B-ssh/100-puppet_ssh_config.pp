@@ -12,5 +12,5 @@ file_line { 'SSH Private Key':
 file_line { 'Deny Password Auth':
   ensure  => present,
   path	  => 'etc/ssh/ssh_config',
-  line	  => 'PasswordAuthentication no',
+  line	  => 'PasswordAuthentication no'
 }
