@@ -6,7 +6,7 @@ include stdlib
 file_line { 'SSH Private Key':
   ensure  => present,
   path	  => 'etc/ssh/ssh_config',
-  line	  => 'IdentifyFile ~/.ssh/school'
+  line	  => 'IdentityFile ~/.ssh/school'
 }
 
 file_line { 'Deny Password Auth':
