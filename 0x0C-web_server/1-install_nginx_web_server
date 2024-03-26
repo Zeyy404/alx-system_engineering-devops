@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Installs nginx on server and allow traffic on port 80
+apt-get update
+apt-get install -y nginx
+ufw allow 'Nginx HTTP'
+echo "<html><body>Hello World!</body></html>" > /var/www/html/index.html
+service nginx start
