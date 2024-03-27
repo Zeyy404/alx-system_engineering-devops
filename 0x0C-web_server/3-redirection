@@ -19,6 +19,6 @@ server {
     }
 }
 EOF
-ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
-nginx -t
+sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
+sudo nginx -t
 sudo service nginx reload
