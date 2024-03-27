@@ -7,7 +7,10 @@ ufw allow 'Nginx HTTP'
 echo 'Hello World!' > /var/www/html/index.html
 cat > /etc/nginx/sites-available/redirect_me <<EOF
 server {
-    listen 80;
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html index.htm;
     server_name _;
 
     location /redirect_me {
@@ -19,6 +22,5 @@ server {
     }
 }
 EOF
-sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
 sudo nginx -t
-sudo service nginx reload
+sudo service nginx restart
