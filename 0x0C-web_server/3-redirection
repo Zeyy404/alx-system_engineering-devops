@@ -7,10 +7,8 @@ ufw allow 'Nginx HTTP'
 
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
-redirection_rule="location /redirect_me {
-    return 301 https://www.youtube.com/watch?v=mLW35YMzELE;
-
-}"
+redirection_rule="server _name _;
+			 rewrite /redirect_me ^https://www.youtube.com/watch?v=mLW35YMzELE permanent;"
 
 sudo sed -i "s/server_name _;/$redirection_rule/" /etc/nginx/sites-enabled/default
 
