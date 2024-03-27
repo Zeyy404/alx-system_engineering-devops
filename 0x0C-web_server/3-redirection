@@ -12,11 +12,11 @@ server {
     listen [::]:80 default_server;
     root   /var/www/html;
     index  index.html index.htm;
-    server_name_;
+    server_name _;
     location /redirect_me {
 	return 301 https://www.youtube.com/watch?v=mLW35YMzELE;
     }
 }
 EOF
-
+ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
 sudo service nginx restart
