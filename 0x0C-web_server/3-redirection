@@ -12,7 +12,7 @@ server {
     root /var/www/html;
     index index.html index.htm;
 
-    location /redirect_me {
+    location /redirect_me/ {
 	return 301 https://youtube.com/watch?v=mLW35YMzELE;
     }
 
