@@ -3,6 +3,7 @@
 # /redirect_me is redirecting to another page.
 apt-get update
 apt-get install -y nginx
+ufw allow 'Nginx HTTP'
 
 cat > /etc/nginx/sites-available/default <<EOF
 server {
