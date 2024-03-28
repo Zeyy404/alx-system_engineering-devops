@@ -4,9 +4,12 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-
-mkdir -p /var/www/html
 echo "Hello World!" | sudo tee /var/www/html/index.html
+
+mkdir -p /var/www/redirect
+echo "Redircting..." | sudo tee /var/www/redirct/index.html
+
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
 cat >> /etc/nginx/sites-available/default <<EOF
 
