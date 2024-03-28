@@ -6,16 +6,16 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
-mkdir -p /var/www/redirect
+sudo mkdir -p /var/www/redirect
 echo "Redircting..." | sudo tee /var/www/redirect/index.html
 
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
-cat >> /etc/nginx/sites-available/default <<EOF
+sudo bash -c 'cat >> /etc/nginx/sites-available/default <<EOF
 
     location /redirect_me {
 	return 301 https://youtube.com/watch?v=mLW35YMzELE;
     }
-EOF
+EOF'
 
 sudo service nginx restart
