@@ -7,14 +7,14 @@ sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 mkdir -p /var/www/redirect
-echo "Redircting..." | sudo tee /var/www/redirct/index.html
+echo "Redircting..." | sudo tee /var/www/redirect/index.html
 
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
 cat >> /etc/nginx/sites-available/default <<EOF
 
     location /redirect_me {
-	return 301 https://youtube.com/watchOB?v=mLW35YMzELE;
+	return 301 https://youtube.com/watch?v=mLW35YMzELE;
     }
 EOF
 
