@@ -1,3 +1,5 @@
+# Configure Nginx so that its HTTP response contains a custom header (on web-01 and web-02)
+
 class { 'nginx':
   manage_repo => true,
   package_ensure => 'latest',
