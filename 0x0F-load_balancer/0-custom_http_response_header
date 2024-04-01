@@ -19,7 +19,7 @@ sudo sed -i '/server_name _;/a \
         internal;\n\
     }' /etc/nginx/sites-available/default
 
-sudo sed -i '/server_name _;/a \
-              add_header X-Served-By $HOSTNAME;' /etc/nginx/sites-available/default
+sudo sed -i '/include \etc\nginx\sites-enabled\\*;/a \
+             add_header X-Served-By "$HOSTNAME";' /etc/nginx/nginx.conf
 
 sudo service nginx restart
