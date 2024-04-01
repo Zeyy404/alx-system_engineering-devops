@@ -6,15 +6,6 @@ sudo ufw allow 'Nginx HTTP'
 
 hostname=$(hostname)
 
-cat <<EOF | sudo tee /etc/nginx/conf.d/custom_response_header.conf
-server {
-    listen 80;
-    server_name _;
-
-    location / {
-            add_header X-Served-By $hostname;
-    }
-}
-EOF
+sudo sed -i '/server_name _;/a \        add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
 
 sudo service nginx restart
