@@ -23,7 +23,8 @@ if __name__ == "__main__":
 
     username = user.get("username")
     tasks = [
-        {"task": t.get("title"), "completed": t.get("completed"), "username": username}
+        {"task": t.get("title"), "completed": t.get("completed"),
+         "username": username}
         for t in todos
     ]
     json_data = {str(employee_id): tasks}
