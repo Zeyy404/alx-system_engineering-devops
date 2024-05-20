@@ -30,6 +30,4 @@ if __name__ == "__main__":
     file_name = "{}.csv".format(employee_id)
     with open(file_name, mode='w', newline='') as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-        writer.writerow(["USER_ID", "USERNAME",
-                         "TASK_COMPLETED_STATUS", "TASK_TITLE"])
         writer.writerows(csv_data)
