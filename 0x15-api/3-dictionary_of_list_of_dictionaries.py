@@ -12,12 +12,12 @@ if __name__ == "__main__":
     all_data = {}
     for user in users:
         user_id = user.get("id")
-        username = user.get("name")
+        username = user.get("username")
         todos = requests.get(url + "todos", params={"userId": user_id}).json()
         tasks = [
             {"username": username, "task": t.get("title"),
              "completed": t.get("completed")}
-             for t in todos
+            for t in todos
         ]
 
         all_data[str(user_id)] = tasks
