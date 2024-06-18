@@ -12,15 +12,12 @@ def number_of_subscribers(subreddit):
     A function that queries the Reddit API for a given subreddit
     Return: 0 if invalid subreddit is given
     """
-    headers = {"User-Agent": "Custom"}
+    headers = {"User-Agent": "Python:0x16.api.advanced.subs:v1.0 (by /u/user)"}
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
 
-    try:
-        response = requests.get(url, headers=headers, allow_redirects=False)
+    response = requests.get(url, headers=headers, allow_redirects=False)
 
-        if response.status_code == 200:
-            return response.json().get("data").get("subscribers")
-        else:
-            return 0
-    except requests.exceptions.RequestException:
+    if response.status_code == 200:
+        return response.json().get("data").get("subscribers")
+    else:
         return 0
