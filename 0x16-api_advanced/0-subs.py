@@ -12,12 +12,17 @@ def number_of_subscribers(subreddit):
     A function that queries the Reddit API for a given subreddit
     Return: 0 if invalid subreddit is given
     """
-    headers = {"User-Agent": "Mozilla/5.0"}
+    if not subreddit or type(subreddit) is not str:
+        return 0
+
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {"User-Agent": "Mozilla/5.0"}
 
-    response = requests.get(url, headers=headers, allow_redirects=False)
-
-    if response.status_code == 200:
-        return response.json().get("data").get("subscribers")
-    else:
+    try:
+        response = requests.get(url, headers=headers, allow_redirects=False)
+        if response.status_code == 200:
+            return response.json().get("data", {}).get("subscribers", 0)
+        else:
+            return 0
+    except requests.exceptions.RequestException:
         return 0
