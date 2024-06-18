@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
     A function that queries the Reddit API for a given subreddit
     Return: 0 if invalid subreddit is given
     """
-    headers = {'User-Agent': 'Custom'}
+    headers = {"User-Agent": "Custom"}
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
 
     try:
