@@ -23,7 +23,8 @@ def recurse(subreddit, hot_list=[], after=None):
         params['after'] = after
 
         try:
-            response = requests.get(url, headers=headers, params=params, allow_redirects=False)
+            response = requests.get(url, headers=headers,
+                                    params=params, allow_redirects=False)
             response.raise_for_status()
 
             data = response.json()
