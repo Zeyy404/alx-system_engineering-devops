@@ -12,7 +12,7 @@ def top_ten(subreddit):
         print(None)
         return
 
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     headers = {"User-Agent": "Mozilla/5.0"}
 
     try:
