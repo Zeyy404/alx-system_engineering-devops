@@ -4,20 +4,7 @@
 display_info () {
     domain="$1"
     subdomain="$2"
-    dns_info=$(dig +short "$subdomain.$domain")
-    if [[ -z "$dns_info" ]]; then
-	echo "The subdomain $subdomain does not have any DNS record."
-    else
-	record_type="N/A"
-	if [[ "$dns_info" =~ ^[0-9.]+$ ]]; then
-	    record_type="A"
-	elif [[ "$dns_info" =~ ^[a-fA-F0-9:]+$ ]]; then
-	    record_type="AAAA"
-	elif [[ "$dns_info" =~ ^[a-zA-Z0-9.-]+$ ]]; then
-	    record_type="CNAME"
-	fi
-	echo "The subdomain $subdomain is a $record_type record and points to $dns_info"
-    fi
+    dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", $subdomain, $4, $5}'
 }
 
 if [ "$#" -eq 1 ]
