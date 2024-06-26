@@ -1,4 +1,4 @@
-# This script updates the ULIMIT value in the /etc/default/nginx file to increase
+# Script to update the ULIMIT value in the /etc/default/nginx file to increase
 # the number of file descriptors Nginx can open, and then restarts the Nginx service
 # to apply the changes.
 
